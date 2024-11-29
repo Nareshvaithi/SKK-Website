@@ -5,9 +5,12 @@ import { NavLink, useNavigate } from "react-router-dom";
 import { AiOutlineYoutube, AiOutlineInstagram, AiOutlineWhatsApp } from "react-icons/ai";
 import { LuPhone } from "react-icons/lu";
 import { LiaUser } from "react-icons/lia";
+import { RiMenuFoldLine } from "react-icons/ri";
+import { RiMenuUnfold2Line } from "react-icons/ri";
 import Headerdata from "../../DataStore/Headerstore";
 
 const Navbar = () => {
+    const {menu,setMenu} = useContext(ContextProvide);
     const navigate = useNavigate();
     const {navbarData} = useContext(ContextProvide);
     const [isScrollingUp, setIsScrollingUp] = useState(true);
@@ -34,12 +37,12 @@ const Navbar = () => {
     }, [lastScrollTop]);
     return (
         <>
-        <div className={`${isScrollingUp ? 'transform translate-y-0' : 'transform -translate-y-full'} transition-all duration-500 bg-white fixed top-0 right-0 left-0 shadow-sm shadow-themebrown z-10`}>
+        <div className={`${isScrollingUp ? 'transform translate-y-0' : 'transform -translate-y-full'} transition-all duration-500 bg-white fixed top-0 right-0 left-0 shadow-themebrown shadow-sm z-10`}>
             <div className="container mx-auto flex justify-between items-center py-4">
                 <div className="w-40">
                     <img src={Logo} alt="Logo" />
                 </div>
-                <ul className="flex items-center gap-5">
+                <ul className="hidden lg:flex items-center gap-5">
                     {navbarData.map(({ id, title, to }) => (
                         <li key={id}>
                             <NavLink
@@ -81,6 +84,9 @@ const Navbar = () => {
                         <LiaUser size={20} />
                     </div>
                 </ul>
+                <div onClick={()=>setMenu(!menu)} className="block lg:hidden text-themebrown">
+                    {menu ? <RiMenuUnfold2Line size={30}/> : <RiMenuFoldLine size={30}/>}
+                </div>
             </div>
         </div>
         <Headerdata/>

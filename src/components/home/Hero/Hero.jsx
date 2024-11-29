@@ -1,8 +1,9 @@
 import { useEffect, useState } from "react";
 import { Swiper, SwiperSlide } from 'swiper/react';
-import { Autoplay, Navigation } from 'swiper/modules';
+import { Autoplay, EffectCube, EffectFlip, Navigation, Zoom } from 'swiper/modules';
 import 'swiper/css';
 import 'swiper/css/navigation';
+import "swiper/css/zoom";
 import { RiArrowLeftWideFill, RiArrowRightWideFill } from "react-icons/ri";
 import axios from 'axios';
 
@@ -46,7 +47,7 @@ const Hero = () => {
   console.log(sliderData)
 
   return (
-    <div className="w-full h-screen pt-32">
+    <div className="w-full h-auto pt-32">
       <div className="container">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-5 w-full h-full">
             <div className="w-full h-full">
@@ -139,7 +140,6 @@ const Hero = () => {
                     }
                 </Swiper>
                 <button className="custom-next absolute left-0 top-1/2 transform -translate-y-1/2 text-white hover:text-white/70 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center z-10 w-10 h-full"><RiArrowLeftWideFill size={50}/></button>
-
                 <button className="custom-prev absolute right-0 top-1/2 transform -translate-y-1/2 text-white hover:text-white/70 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center z-10 w-10 h-full"><RiArrowRightWideFill size={50}/></button>
               </div>
         </div>
