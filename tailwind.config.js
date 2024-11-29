@@ -6,6 +6,13 @@ export default {
   ],
   theme: {
     extend: {
+      colors:{
+        "themebrown":"#b35c21"
+      },
+      fontFamily:{
+        "mainFont":["SUSE"],
+        "mainFont2":["Dosis"]
+      },
       container:{
         center:true,
         padding:"1rem"

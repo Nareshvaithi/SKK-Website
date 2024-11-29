@@ -34,7 +34,7 @@ const Navbar = () => {
     }, [lastScrollTop]);
     return (
         <>
-        <div className={`${isScrollingUp ? 'transform translate-y-0' : 'transform -translate-y-full'} transition-all duration-500 bg-white fixed top-0 right-0 left-0 shadow-md`}>
+        <div className={`${isScrollingUp ? 'transform translate-y-0' : 'transform -translate-y-full'} transition-all duration-500 bg-white fixed top-0 right-0 left-0 shadow-sm shadow-themebrown z-10`}>
             <div className="container mx-auto flex justify-between items-center py-4">
                 <div className="w-40">
                     <img src={Logo} alt="Logo" />
@@ -67,14 +67,14 @@ const Navbar = () => {
                     <div className="border-r border-black h-4"></div>
                     <div
                         onClick={() => {
-                            window.location.href = "tel:+911234567890";
+                            window.location.href = "tel:+919840166155";
                         }}
                         className="flex items-center gap-1 cursor-pointer"
                     >
                         <li>
                             <LuPhone />
                         </li>
-                        <li>+91 1234567890</li>
+                        <li>+91 98401 66155</li>
                     </div>
                     <div className="border-r border-black h-4"></div>
                     <div onClick={()=>navigate('/adminlayout')}>

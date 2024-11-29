@@ -27,8 +27,6 @@ const Headerdata = () => {
         { id: 7, title: "Faq", to: "/faq" },
         { id: 8, title: "Contact", to: "/contact" },
         ];
-
-        console.log("Setting navbar data:", data);
         setNavbarData(data);
     }, [setNavbarData]);
 
