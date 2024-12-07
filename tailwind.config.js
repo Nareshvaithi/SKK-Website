@@ -10,8 +10,7 @@ export default {
         "themebrown":"#b35c21"
       },
       fontFamily:{
-        "mainFont":["SUSE"],
-        "mainFont2":["Dosis"]
+        "mainFont2":["Josefin Sans","sans serif"]
       },
       container:{
         center:true,

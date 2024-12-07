@@ -6,7 +6,6 @@ import { AiOutlineYoutube, AiOutlineInstagram, AiOutlineWhatsApp } from "react-i
 import { LuPhone } from "react-icons/lu";
 import { LiaUser } from "react-icons/lia";
 import { RiMenuFoldLine } from "react-icons/ri";
-import { RiMenuUnfold2Line } from "react-icons/ri";
 import Headerdata from "../../DataStore/Headerstore";
 
 const Navbar = () => {
@@ -37,7 +36,7 @@ const Navbar = () => {
     }, [lastScrollTop]);
     return (
         <>
-        <div className={`${isScrollingUp ? 'transform translate-y-0' : 'transform -translate-y-full'} transition-all duration-500 bg-white fixed top-0 right-0 left-0 shadow-themebrown shadow-sm z-10`}>
+        <div className={`${isScrollingUp ? 'transform translate-y-0' : 'transform -translate-y-full'} transition-all duration-500 bg-white fixed top-0 right-0 left-0 shadow-themebrown shadow-sm z-30`}>
             <div className="container mx-auto flex justify-between items-center py-4">
                 <div className="w-40">
                     <img src={Logo} alt="Logo" />
@@ -84,8 +83,8 @@ const Navbar = () => {
                         <LiaUser size={20} />
                     </div>
                 </ul>
-                <div onClick={()=>setMenu(!menu)} className="block lg:hidden text-themebrown">
-                    {menu ? <RiMenuUnfold2Line size={30}/> : <RiMenuFoldLine size={30}/>}
+                <div onClick={()=>setMenu(true)}>
+                    <RiMenuFoldLine size={30}/>
                 </div>
             </div>
         </div>

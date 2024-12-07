@@ -1,4 +1,5 @@
 import AboutComp from "../components/home/about/AboutComp";
+import Guruscopm from "../components/home/gurus/gurus";
 import Hero from "../components/home/Hero/Hero";
 
 const Home = ()=>{
@@ -6,6 +7,7 @@ const Home = ()=>{
         <div>
             <Hero/>
             <AboutComp/>
+            <Guruscopm/>
         </div>
     )
 }

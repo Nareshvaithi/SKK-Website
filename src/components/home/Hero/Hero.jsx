@@ -1,9 +1,8 @@
 import { useEffect, useState } from "react";
 import { Swiper, SwiperSlide } from 'swiper/react';
-import { Autoplay, EffectCube, EffectFlip, Navigation, Zoom } from 'swiper/modules';
+import { Autoplay, Navigation } from 'swiper/modules';
 import 'swiper/css';
 import 'swiper/css/navigation';
-import "swiper/css/zoom";
 import { RiArrowLeftWideFill, RiArrowRightWideFill } from "react-icons/ri";
 import axios from 'axios';
 
@@ -15,7 +14,7 @@ const Hero = () => {
   useEffect(() => {
     const fetchbannervideo = async () => {
       try {
-        const getBannerVideoLink = await axios.get("https://skk-backend-1.onrender.com/banner");
+        const getBannerVideoLink = await axios.get("http://localhost:3000/banner");
         setVideolink(getBannerVideoLink.data);
       } catch (error) {
         console.error("Error fetching video links:", error);
@@ -23,7 +22,7 @@ const Hero = () => {
     };
     const fetchshortslink = async () => {
       try {
-        const getShortsLink = await axios.get("https://skk-backend-1.onrender.com/bannershorts");
+        const getShortsLink = await axios.get("http://localhost:3000/bannershorts");
         setShortslink(getShortsLink.data);
       } catch (error) {
         console.error("Error fetching video links:", error);
@@ -31,7 +30,7 @@ const Hero = () => {
     };
     const fetchsliderlink = async ()=>{
       try{
-        const getsliderdata = await axios.get("https://skk-backend-1.onrender.com/bannerimages");
+        const getsliderdata = await axios.get("http://localhost:3000/bannerimages");
         setSliderData(getsliderdata.data);
       }
       catch(error){
@@ -44,7 +43,9 @@ const Hero = () => {
     fetchsliderlink();
   }, []);
 
-  console.log(sliderData)
+  sliderData.map(({_id,url})=>{
+    console.log(url)
+  })
 
   return (
     <div className="w-full h-auto pt-32">
@@ -74,13 +75,14 @@ const Hero = () => {
                     spaceBetween={0}
                     loop={true}
                     autoplay={{
-                      delay: 5000,
+                      delay: 3000,
                       disableOnInteraction: false,
                     }}
                     navigation={{
                       nextEl: '.youtubebanner-next',
                       prevEl: '.youtubebanner-prev',
                     }}
+                    speed={1000}
                   >
                     {videolink.map(({ _id, title, url }) => (
                       <SwiperSlide key={_id}>
@@ -134,13 +136,13 @@ const Hero = () => {
                         <SwiperSlide
                         key={_id}
                         >
-                          <img src={url} className="w-full h-full" alt="" />
+                          <img src={url} className="w-full h-full object-cover" alt="" />
                         </SwiperSlide>
                       ))
                     }
                 </Swiper>
                 <button className="custom-next absolute left-0 top-1/2 transform -translate-y-1/2 text-white hover:text-white/70 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center z-10 w-10 h-full"><RiArrowLeftWideFill size={50}/></button>
-                <button className="custom-prev absolute right-0 top-1/2 transform -translate-y-1/2 text-white hover:text-white/70 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center z-10 w-10 h-full"><RiArrowRightWideFill size={50}/></button>
+                <button className="custom-prev absolute right-0 top-1/2 transform -translate-y-1/2 text-white hover:text-white/70 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center z-10   w-10 h-full"><RiArrowRightWideFill size={50}/></button>
               </div>
         </div>
       </div>
